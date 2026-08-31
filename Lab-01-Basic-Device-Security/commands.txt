@@ -1,206 +1,76 @@
-LAB 01 - BASIC DEVICE SECURITY
-==============================
-
-Objective:
-Practice basic Cisco IOS device configuration, password security,
-configuration verification, and saving configurations.
-
---------------------------------------------------
-1. CHANGE DEVICE HOSTNAMES
---------------------------------------------------
-
-Enter Privileged EXEC mode:
-
-Router> enable
-Router#
-
-Enter Global Configuration mode:
-
-Router# configure terminal
-Router(config)#
-
-Change the router hostname from Router to R1:
-
-Router(config)# hostname R1
-R1(config)#
-
-Change the switch hostname from Switch to SW1:
-
-Switch(config)# hostname SW1
-SW1(config)#
-
-What I learned:
-The "hostname" command changes the name used to identify a Cisco device.
-
-
---------------------------------------------------
-2. CONFIGURE AN ENABLE PASSWORD
---------------------------------------------------
-
-Configure an enable password on both R1 and SW1:
-
-R1(config)# enable password <password>
-SW1(config)# enable password <password>
-
-Return to User EXEC mode and test the password.
-
-The password is required when using "enable" to enter
-Privileged EXEC mode.
-
-What I learned:
-"enable password" protects access to Privileged EXEC mode.
-
-
---------------------------------------------------
-3. VIEW THE RUNNING CONFIGURATION
---------------------------------------------------
-
-Command:
-
-R1# show running-config
-
-Short form:
-
-R1# sh run
-
-Observation:
-Before password encryption is enabled, the enable password can be
-displayed in the running configuration.
-
-
---------------------------------------------------
-4. ENABLE PASSWORD ENCRYPTION
---------------------------------------------------
-
-Command:
-
-R1(config)# service password-encryption
-
-This encrypts eligible plaintext passwords in the configuration.
-
-To check the running configuration without leaving Global
-Configuration mode:
-
-R1(config)# do show running-config
-
-Observation:
-The original enable password is no longer displayed in plaintext.
-
-The enable password is displayed as a Type 7 encoded value.
-
-What I learned:
-The "do" command allows me to execute a Privileged EXEC command
-without leaving Global Configuration mode.
-
-
---------------------------------------------------
-5. CONFIGURE A MORE SECURE ENABLE SECRET
---------------------------------------------------
-
-Command:
-
-R1(config)# enable secret <password>
-
-I then returned to User EXEC mode and attempted to enter
-Privileged EXEC mode again.
-
-Observation:
-When both "enable password" and "enable secret" are configured,
-the device requires the enable secret.
-
-The enable secret takes precedence over the enable password.
-
-
---------------------------------------------------
-6. COMPARE PASSWORD TYPES
---------------------------------------------------
-
-Check the configuration:
-
-R1# show running-config
-
-Observed in this lab:
-
-enable password = Type 7
-enable secret   = Type 5
-
-What I learned:
-Type 7 provides weak, reversible password obfuscation.
-
-The enable secret provides stronger password protection and takes
-priority over the enable password.
-
-
---------------------------------------------------
-7. SAVE THE CONFIGURATION
---------------------------------------------------
-
-The running configuration can be saved to the startup configuration.
-
-Method 1:
-
-R1# write
-
-Method 2:
-
-R1# write memory
-
-Method 3:
-
-R1# copy running-config startup-config
-
-Short form:
-
-R1# copy run start
-
-
---------------------------------------------------
-8. VERIFY THE STARTUP CONFIGURATION
---------------------------------------------------
-
-Command:
-
-R1# show startup-config
-
-Short form:
-
-R1# sh start
-
-What I learned:
-The running-config contains the device's current active configuration.
-
-The startup-config contains the saved configuration that will be
-loaded when the device starts.
-
-
-==================================================
-KEY TAKEAWAYS
-==================================================
-
-Commands practiced:
-
+# Lab 01 - Basic Device Security
+# Cisco IOS Commands Used
+
+# ----------------------------------------
+# Enter Privileged EXEC Mode
+# ----------------------------------------
 enable
+
+
+# ----------------------------------------
+# Enter Global Configuration Mode
+# ----------------------------------------
 configure terminal
+
+
+# ----------------------------------------
+# Configure Device Hostnames
+# ----------------------------------------
 hostname R1
 hostname SW1
+
+
+# ----------------------------------------
+# Configure Enable Password
+# ----------------------------------------
 enable password <password>
+
+
+# ----------------------------------------
+# View Running Configuration
+# ----------------------------------------
 show running-config
+
+# Short form
+sh run
+
+
+# ----------------------------------------
+# Encrypt Plaintext Passwords
+# ----------------------------------------
 service password-encryption
+
+
+# ----------------------------------------
+# View Running Configuration from
+# Global Configuration Mode
+# ----------------------------------------
 do show running-config
+
+
+# ----------------------------------------
+# Configure Enable Secret
+# ----------------------------------------
 enable secret <password>
+
+
+# ----------------------------------------
+# Save Running Configuration
+# ----------------------------------------
+copy running-config startup-config
+
+# Short form
+copy run start
+
+# Alternative commands
 write
 write memory
-copy running-config startup-config
+
+
+# ----------------------------------------
+# Verify Startup Configuration
+# ----------------------------------------
 show startup-config
 
-Skills practiced:
-
-- Cisco IOS CLI navigation
-- Device hostname configuration
-- Basic device security
-- Enable password configuration
-- Password encryption
-- Enable secret configuration
-- Running-config verification
-- Startup-config verification
-- Saving Cisco device configurations
+# Short form
+sh start
