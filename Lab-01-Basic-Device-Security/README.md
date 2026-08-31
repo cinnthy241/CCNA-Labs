@@ -1,29 +1,19 @@
 # Lab 01 - Basic Device Security
 
 ## Objective
-Practice basic Cisco IOS configuration and device security on a router and switch.
+Practice basic Cisco IOS device configuration and security.
 
-## Devices
-- R1 - Router
-- SW1 - Switch
-
-## Tasks
-- Configure hostnames
-- Configure an enable password
-- Test privileged EXEC access
-- Enable password encryption
-- Configure an enable secret
-- Verify the running configuration
-- Save the running configuration to startup configuration
-
-## Lab Progress
-- [ ] Configure R1
-- [ ] Configure SW1
-- [ ] Test passwords
-- [ ] Verify configuration
-- [ ] Save configuration
-- [ ] Add screenshots
-- [ ] Add Packet Tracer file
+## Lab Tasks
+- Changed device hostnames to R1 and SW1
+- Configured an enable password
+- Enabled password encryption
+- Configured an enable secret
+- Verified the running configuration
+- Saved running-config to startup-config
 
 ## What I Learned
-I will update this section after completing the lab.
+- How to navigate Cisco IOS CLI modes
+- How enable password and enable secret work
+- Enable secret takes priority over enable password
+- How to verify configurations
+- How to save device configurations
