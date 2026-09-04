@@ -1,1 +1,22 @@
+# Commands Used
 
+
+# ----------------------------------------
+# View MAC Address Table
+# ----------------------------------------
+
+show mac address-table
+
+
+# ----------------------------------------
+# Clear Dynamically Learned MAC Addresses
+# ----------------------------------------
+
+clear mac address-table dynamic
+
+
+# ----------------------------------------
+# Verify MAC Address Table After Clearing
+# ----------------------------------------
+
+show mac address-table
