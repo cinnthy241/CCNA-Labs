@@ -1,1 +1,65 @@
 
+### `commands.txt`
+
+Keep this much shorter:
+
+```text
+# Lab 03 - IPv4 Addressing
+# Cisco IOS Commands Used
+
+
+# ----------------------------------------
+# Configure Router Hostname
+# ----------------------------------------
+
+enable
+configure terminal
+hostname R1
+
+
+# ----------------------------------------
+# View Interface Status and IP Addresses
+# ----------------------------------------
+
+show ip interface brief
+
+# Short form
+sh ip int br
+
+
+# ----------------------------------------
+# Configure Router Interface
+# ----------------------------------------
+
+interface <interface>
+description <description>
+ip address <IP-address> <subnet-mask>
+no shutdown
+
+
+# ----------------------------------------
+# Verify Interfaces
+# ----------------------------------------
+
+show ip interface brief
+
+
+# ----------------------------------------
+# View Running Configuration
+# ----------------------------------------
+
+show running-config
+
+
+# ----------------------------------------
+# Save Configuration
+# ----------------------------------------
+
+copy running-config startup-config
+
+
+# ----------------------------------------
+# Test Connectivity from PCs
+# ----------------------------------------
+
+ping <destination-IP>
