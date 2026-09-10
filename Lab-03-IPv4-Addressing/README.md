@@ -74,31 +74,30 @@ I configured the required interfaces on R1 with IPv4 addresses, subnet masks, de
 ### Interface 1
 
 ```text
-interface [FILL IN: interface name]
-description [FILL IN: description]
-ip address [FILL IN: IP address] [FILL IN: subnet mask]
+interface GigabitEthernet0/0
+description ## to SW1 ##
+ip address 15.255.255.254/8
 no shutdown
 ```
 
 ### Interface 2
 
 ```text
-interface [FILL IN: interface name]
-description [FILL IN: description]
-ip address [FILL IN: IP address] [FILL IN: subnet mask]
+interface GigabitEthernet0/1
+description ## to SW2 ##
+ip address 182.98.255.254/16
 no shutdown
 ```
 
 ### Interface 3
 
 ```text
-interface [FILL IN: interface name]
-description [FILL IN: description]
-ip address [FILL IN: IP address] [FILL IN: subnet mask]
+interface GigabitEthernet0/2
+description ## to SW2 ##
+ip address 201.191.20.254/24
 no shutdown
 ```
 
-> Delete Interface 3 if the lab only uses two router interfaces.
 
 ### What I Learned
 
@@ -123,14 +122,12 @@ show ip interface brief
 
 | Interface | IP Address | Status | Protocol |
 |---|---|---|---|
-| [FILL IN] | [FILL IN] | [FILL IN] | [FILL IN] |
-| [FILL IN] | [FILL IN] | [FILL IN] | [FILL IN] |
-| [FILL IN] | [FILL IN] | [FILL IN] | [FILL IN] |
+| GigabitEthernet0/0 | 15.255.255.254 | up | up|
+| GigabitEthernet0/1 | 182.98.255.254| up | up |
+| GigabitEthernet0/2 | 201.191.20.254 | up | up |
 
 ### What I Observed
-
-**[FILL IN: Write what you observed. For example: The configured interfaces displayed the correct IP addresses and showed an up/up status.]**
-
+The configured interfaces displayed the correct IP addresses and showed an up/up status
 ---
 
 ## 5. Verify and Save the Configuration
@@ -183,11 +180,11 @@ PC → Desktop → IP Configuration
 
 ### Addressing Table
 
-| Device | IP Address | Subnet Mask | Default Gateway |
+| Device | IP Address | Subnet Mask  | Default Gateway |
 |---|---|---|---|
-| PC1 | [FILL IN] | [FILL IN] | [FILL IN] |
-| PC2 | [FILL IN] | [FILL IN] | [FILL IN] |
-| PC3 | [FILL IN] | [FILL IN] | [FILL IN] |
+| PC1 | 15.0.0.1      | 255.0.0.0    | 15.255.255.254 |
+| PC2 | 182.98.0.1    | 255.255.0.0  | 182.98.255.254 |
+| PC3 | 201.191.20.1  | 255.255.255.0| 201.191.20.254|
 
 ### What I Learned
 
@@ -206,22 +203,19 @@ After configuring R1 and the PCs, I tested network connectivity from PC1.
 ### PC1 → PC2
 
 ```text
-ping [FILL IN: PC2 IP address]
+ping 182.98.0.1
 ```
 
-**Result:** [FILL IN: Successful / Failed]
+**Result:** Successful (Sent = 4, Received = 3, Lost = 1 )
 
 ### PC1 → PC3
 
 ```text
-ping [FILL IN: PC3 IP address]
+ping 201.191.20.1
 ```
 
-**Result:** [FILL IN: Successful / Failed]
+**Result:** Successful (Sent = 4, Received = 3, Lost = 1 )
 
-### What I Observed
-
-**[FILL IN: Describe your ping results.]**
 
 ### What I Learned
 
