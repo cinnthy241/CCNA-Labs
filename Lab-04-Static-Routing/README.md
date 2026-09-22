@@ -332,25 +332,3 @@ In this lab, I practiced:
 
 ---
 
-## Commands Practiced
-
-```text
-enable
-configure terminal
-hostname <hostname>
-
-interface <interface>
-description <description>
-ip address <IP-address> <subnet-mask>
-no shutdown
-
-show ip interface brief
-show ip route
-
-ip route <destination-network> <subnet-mask> <next-hop-IP>
-
-show running-config
-copy running-config startup-config
-
-ping <destination-IP>
-```
