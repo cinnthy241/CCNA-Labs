@@ -1,1 +1,12 @@
+## Commands Practiced
 
+```text
+ipconfig
+ping <destination-IP>
+show ip interface brief
+show ip route
+show running-config | include ip route
+no ip route ip-address netmask next-hop
+ip route ip-address netmask next-hop
+interface g0/0
+ip address ip-addresss netmask
