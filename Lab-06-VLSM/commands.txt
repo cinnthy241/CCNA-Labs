@@ -1,1 +1,126 @@
+# Lab 06 - VLSM & Static Routing
+# Cisco IOS Commands Used
 
+
+# ----------------------------------------
+# Enter Privileged EXEC Mode
+# ----------------------------------------
+
+enable
+
+
+# ----------------------------------------
+# Enter Global Configuration Mode
+# ----------------------------------------
+
+configure terminal
+
+
+# ----------------------------------------
+# Configure Router Hostname
+# ----------------------------------------
+
+hostname R1
+hostname R2
+
+
+# ----------------------------------------
+# Configure Router Interfaces
+# ----------------------------------------
+
+interface <interface>
+
+description <description>
+
+ip address <IP-address> <subnet-mask>
+
+no shutdown
+
+
+# ----------------------------------------
+# Verify Router Interfaces
+# ----------------------------------------
+
+show ip interface brief
+
+# Short form
+sh ip int br
+
+
+# ----------------------------------------
+# View Routing Table
+# ----------------------------------------
+
+show ip route
+
+# Short form
+sh ip route
+
+
+# ----------------------------------------
+# Configure Static Route
+# ----------------------------------------
+
+ip route <destination-network> <subnet-mask> <next-hop-IP>
+
+
+# Example format
+# ip route 192.168.5.192 255.255.255.240 192.168.5.226
+
+
+# ----------------------------------------
+# Remove an Incorrect Static Route
+# ----------------------------------------
+
+no ip route <destination-network> <subnet-mask> <next-hop-IP>
+
+
+# ----------------------------------------
+# View Running Configuration
+# ----------------------------------------
+
+show running-config
+
+# Short form
+sh run
+
+
+# ----------------------------------------
+# Run EXEC Command While in Config Mode
+# ----------------------------------------
+
+do show ip route
+
+do show ip interface brief
+
+
+# ----------------------------------------
+# Save Running Configuration
+# ----------------------------------------
+
+copy running-config startup-config
+
+# Short form
+copy run start
+
+# Alternative
+write
+
+write memory
+
+
+# ----------------------------------------
+# Verify Startup Configuration
+# ----------------------------------------
+
+show startup-config
+
+# Short form
+sh start
+
+
+# ----------------------------------------
+# Test Connectivity
+# ----------------------------------------
+
+ping <destination-IP>
